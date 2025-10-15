@@ -24,8 +24,11 @@ class AuthController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Login successful.',
-            'token' => $token,
-            'data' => $user,
+            'data' => [
+                'token_type' => 'Bearer',
+                'token' => $token,
+                'user' => $user,
+            ]
         ], 200);
     }
 
@@ -52,8 +55,11 @@ class AuthController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'User registered successfully.',
-            'token' => $token,
-            'data' => $user,
+            'data' => [
+                'token_type' => 'Bearer',
+                'token' => $token,
+                'user' => $user,
+            ]
         ], 201);
     }
 
@@ -80,7 +86,9 @@ class AuthController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'User profile fetched successfully.',
-            'data' => $user,
+            'data' => [
+                'user' => $user
+            ]
         ], 200);
     }
 
